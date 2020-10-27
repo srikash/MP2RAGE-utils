@@ -15,7 +15,7 @@ function [ B1temp T1temp MP2RAGEcorrected] = T1B1correctpackage( Sa2RAGEimg,B1im
 %    Sa2RAGE.TIs=[75e-3 1800e-3];
 %    Sa2RAGE.NZslices=[16+4 16+4]; excitations before and after kspace centre
 %    Sa2RAGE.FlipDegrees=[4 11];
-%    Sa2RAGE.averageT1=1.5;
+%    Sa2RAGE.AverageT1=1.5;
 %
 %     MP2RAGE.B0=7;           % in Tesla
 %     MP2RAGE.TR=6;           % MP2RAGE TR in seconds 
@@ -42,7 +42,7 @@ function [ B1temp T1temp MP2RAGEcorrected] = T1B1correctpackage( Sa2RAGEimg,B1im
 % 
 % please cite:
 % Marques, J.P., Gruetter, R., 2013. New Developments and Applications of the MP2RAGE Sequence - Focusing the Contrast and High Spatial Resolution R1 Mapping. PLoS ONE 8. doi:10.1371/journal.pone.0069294
-% Marques, J.P., Kober, T., Krueger, G., van der Zwaag, W., Van de Moortele, P.-F., Gruetter, R., 2010a. MP2RAGE, a self bias-field corrected sequence for improved segmentation and T1-mapping at high field. NeuroImage 49, 1271–1281. doi:10.1016/j.neuroimage.2009.10.002
+% Marques, J.P., Kober, T., Krueger, G., van der Zwaag, W., Van de Moortele, P.-F., Gruetter, R., 2010a. MP2RAGE, a self bias-field corrected sequence for improved segmentation and T1-mapping at high field. NeuroImage 49, 1271ï¿½1281. doi:10.1016/j.neuroimage.2009.10.002
 %
 
 if nargin==8
@@ -61,39 +61,39 @@ if isempty(brain)
     end;
 end;
 %% sanity check to see how B1 sensitive your sequence was
-gcf=figure(3);
-set(gcf,'Color',[1 1 1]);
-hold off
-for B1=0.6:0.2:1.4
-    [MP2RAGEamp T1vector IntensityBeforeComb]=MP2RAGE_lookuptable(2,MP2RAGE.TR,MP2RAGE.TIs,B1*MP2RAGE.FlipDegrees,MP2RAGE.NZslices,MP2RAGE.TRFLASH,'normal');
-    plot(MP2RAGEamp,T1vector,'color',[0.5 0.5 0.5]*B1,'Linewidth',2)
-    hold on
-end
-legend('B1=0.6','B1=0.8','B1=1','B1=1.2','B1=1.4','B1=1.6')
-% examples of T1 values at 3T
-if ~isfield(MP2RAGE,'B0')
-    T1WM=1.1;
-    T1GM=1.85;
-    T1CSF=3.5;
-else
-    if MP2RAGE.B0==3
-        T1WM=0.85;
-        T1GM=1.35;
-        T1CSF=2.8;
-    else
-        % examples of T1 values at 7T
-        T1WM=1.1;
-        T1GM=1.85;
-        T1CSF=3.5;
-    end;
-end;
-plot([-0.5 0.5],[T1CSF T1CSF;T1GM T1GM;T1WM T1WM]','Linewidth',2)
-text(0.35,T1WM,'White Matter')
-text(0.35,T1GM,'Grey Matter')
-text(0.35,T1CSF,'CSF')
-
-ylabel('T1');
-xlabel('MP2RAGE');
+% gcf=figure(3);
+% set(gcf,'Color',[1 1 1]);
+% hold off
+% for B1=0.6:0.2:1.4
+%     [MP2RAGEamp T1vector IntensityBeforeComb]=MP2RAGE_lookuptable(2,MP2RAGE.TR,MP2RAGE.TIs,B1*MP2RAGE.FlipDegrees,MP2RAGE.NZslices,MP2RAGE.TRFLASH,'normal');
+% %     plot(MP2RAGEamp,T1vector,'color',[0.5 0.5 0.5]*B1,'Linewidth',2)
+% %     hold on
+% end
+% legend('B1=0.6','B1=0.8','B1=1','B1=1.2','B1=1.4','B1=1.6')
+% % examples of T1 values at 3T
+% if ~isfield(MP2RAGE,'B0')
+%     T1WM=1.1;
+%     T1GM=1.85;
+%     T1CSF=3.5;
+% else
+%     if MP2RAGE.B0==3
+%         T1WM=0.85;
+%         T1GM=1.35;
+%         T1CSF=2.8;
+%     else
+%         % examples of T1 values at 7T
+%         T1WM=1.1;
+%         T1GM=1.85;
+%         T1CSF=3.5;
+%     end;
+% end;
+% plot([-0.5 0.5],[T1CSF T1CSF;T1GM T1GM;T1WM T1WM]','Linewidth',2)
+% text(0.35,T1WM,'White Matter')
+% text(0.35,T1GM,'Grey Matter')
+% text(0.35,T1CSF,'CSF')
+% 
+% ylabel('T1');
+% xlabel('MP2RAGE');
 
 %% definition of range of B1s and T1s and creation of MP2RAGE and Sa2RAGE lookupvector to make sure the input data for the rest of the code is the Sa2RAGEimg and the MP2RAGEimg
 
@@ -104,13 +104,13 @@ T1_vector=0.5:0.05:5.2;
 
 [MP2RAGE.Intensity MP2RAGE.T1vector ]=MP2RAGE_lookuptable(2,MP2RAGE.TR,MP2RAGE.TIs,MP2RAGE.FlipDegrees,MP2RAGE.NZslices,MP2RAGE.TRFLASH,'normal',invEFF);
 
-[Sa2RAGE.B1vector Sa2RAGE.Intensity]=B1mappingSa2RAGElookuptable(2,Sa2RAGE.TR,Sa2RAGE.TIs,Sa2RAGE.FlipDegrees,Sa2RAGE.NZslices,Sa2RAGE.TRFLASH,[],Sa2RAGE.averageT1);
+[Sa2RAGE.B1vector Sa2RAGE.Intensity]=B1mappingSa2RAGElookuptable(2,Sa2RAGE.TR,Sa2RAGE.TIs,Sa2RAGE.FlipDegrees,Sa2RAGE.NZslices,Sa2RAGE.TRFLASH,[],Sa2RAGE.AverageT1);
 
 
 if isempty(MP2RAGEimg)
     T1.img=double(T1.img)/1000;
     MP2RAGEimg.img=reshape(interp1(MP2RAGE.T1vector,MP2RAGE.Intensity,T1.img(:)),size(B1img.img));
-    MP2RAGEimg.img(isnan(MP2RAGEimg.img))=-0.5
+    MP2RAGEimg.img(isnan(MP2RAGEimg.img))=-0.5;
 else
     MP2RAGEimg.img=double(MP2RAGEimg.img)/4095-0.5;
 end;
@@ -182,34 +182,34 @@ B1temp.img(brain.img==0)=0;
 Sa2RAGEimg.img(isnan(Sa2RAGEimg.img))=-0.5;
 for k=1:3
     btemp=squeeze(B1temp.img(:,end/2,:));
-    B1temp.img(brain.img~=0)=interp2(Sa2RAGE_vector,T1_vector,B1matrix,Sa2RAGEimg.img(brain.img~=0),T1temp.img(brain.img~=0))
+    B1temp.img(brain.img~=0)=interp2(Sa2RAGE_vector,T1_vector,B1matrix,Sa2RAGEimg.img(brain.img~=0),T1temp.img(brain.img~=0));
     B1temp.img(isnan(B1temp.img))=2;
     
     btemp2=squeeze(B1temp.img(:,end/2,:));
     temp=squeeze(T1temp.img(:,end/2,:));
     
-    T1temp.img(brain.img~=0)=interp2(MP2RAGE_vector,B1_vector,T1matrix,MP2RAGEimg.img(brain.img~=0),B1temp.img(brain.img~=0))
+    T1temp.img(brain.img~=0)=interp2(MP2RAGE_vector,B1_vector,T1matrix,MP2RAGEimg.img(brain.img~=0),B1temp.img(brain.img~=0));
     T1temp.img(isnan(T1temp.img))=4;
     
     temp2=squeeze(T1temp.img(:,end/2,:));
-    
-    gcf=figure(1);
-    set(gcf,'Color',[1 1 1]);
-    subplot(2,2,k)
-    imagesc(temp2-temp);colorbar
-    title(['T1 correction Iteration ',[num2str(k)]])
-    colormap(gray)
-    gcf=figure(2);
-    set(gcf,'Color',[1 1 1]);
-    subplot(2,2,k)
-    imagesc(btemp2-btemp);colorbar
-    title(['B1 correction Iteration ',[num2str(k)]])
-    colormap(gray)
+%     
+%     gcf=figure(1);
+%     set(gcf,'Color',[1 1 1]);
+%     subplot(2,2,k)
+%     imagesc(temp2-temp);colorbar
+%     title(['T1 correction Iteration ',[num2str(k)]])
+%     colormap(gray)
+%     gcf=figure(2);
+%     set(gcf,'Color',[1 1 1]);
+%     subplot(2,2,k)
+%     imagesc(btemp2-btemp);colorbar
+%     title(['B1 correction Iteration ',[num2str(k)]])
+%     colormap(gray)
     
 end;
 %% creates an MP2RAGEcorrected image and puts both the B1 and T1 in the ms scale
 
-[MP2RAGE.Intensity MP2RAGE.T1vector ]=MP2RAGE_lookuptable(2,MP2RAGE.TR,MP2RAGE.TIs,MP2RAGE.FlipDegrees,MP2RAGE.NZslices,MP2RAGE.TRFLASH,'normal',invEFF)
+[MP2RAGE.Intensity MP2RAGE.T1vector ]=MP2RAGE_lookuptable(2,MP2RAGE.TR,MP2RAGE.TIs,MP2RAGE.FlipDegrees,MP2RAGE.NZslices,MP2RAGE.TRFLASH,'normal',invEFF);
 MP2RAGEcorrected=MP2RAGEimg;
 MP2RAGEcorrected.img=reshape(interp1(MP2RAGE.T1vector,MP2RAGE.Intensity,T1temp.img(:)),size(T1temp.img));
 MP2RAGEcorrected.img(isnan(MP2RAGEcorrected.img))=-0.5;

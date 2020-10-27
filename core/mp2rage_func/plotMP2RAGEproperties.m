@@ -58,7 +58,7 @@ text(0,(T1CSF+T1GM)/2,Contrast)
 
 
 ylabel('T1');
-xlabel('MP2RAGE');
+xlabel('MP2RAGE'); axis square; box off;
 
 
 

@@ -1,0 +1,47 @@
+# Example config file for MP2RAGE-utils
+# Leave fields empty if not needed
+
+# Required input parameters (full path must be provided)
+INV1: example/MP2RAGE_INV1.nii
+INV2: example/MP2RAGE_INV2.nii
+UNI: example/MP2RAGE_UNI.nii
+
+# Optional input parameters (full path must be provided)
+T1map: 
+sa2rageINV2: example/Sa2RAGE_invContrast2.nii
+sa2rageB1map: example/Sa2RAGE_B1map.nii
+tflB1map:
+
+# MP2RAGE parameters (from your protocol)
+B0: 7.0 # Field Strength
+TR: 6.0 # MP2RAGE TR
+TRFLASH: 6.7e-3 # GRE readout TR
+FlipDegrees: 4 5 # Flip angles
+TIs: 800e-3 2700e-3 # Inversion times
+SlicesPerSlab: 143
+PartialFourierInSlice: 0.75
+
+# Background removal options (1 = yes, 0 = no)
+DenoiseUNI: 1
+DenoiseT1map: 1
+DenoiseWeight: 10
+
+# Calculate additional maps (1 = yes, 0 = no)
+CalculateT1map: 1
+CalculateR1map: 1
+CalculateM0map: 1
+
+# B1+ correction (1 = yes, 0 = no), coregister requires SPM
+B1correct: 1
+Coregister: 0
+
+# If B1+ correcting with Sa2RAGE, give parameters (from your protocol)
+sa2rageTR: 2.4
+sa2rageTRFLASH: 2.75e-3
+sa2rageFlipDegrees: 4 10
+sa2rageTIs: 47e-3 1800e-3
+sa2rageBaseResolution: 128
+sa2ragePartialFourierInPE: 0.75 
+sa2rageiPATPhaseEncode: 3
+sa2rageRefLines: 18
+sa2rageAverageT1: 1.5
