@@ -1,5 +1,10 @@
 # MP2RAGE-utils
 
+## Usage
+Setup all parameters and paths in the `config.yml` file  
+and then run  
+`mp2rage_main('config.yml')`
+
 ### MP2RAGE functions
 MP2RAGE Scripts from José Marques : https://github.com/JosePMarques/MP2RAGE-related-scripts  
 * Background noise removal by using a "robust"/regularized version of the combination of the two inversion time images.
