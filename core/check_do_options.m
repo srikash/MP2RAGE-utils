@@ -10,7 +10,6 @@ else
     disp('++++ Default weighting will be used.');
     disp(['> ',num2str(MP2RAGE.DenoiseWeight)]);
 end
-
 if MP2RAGE.DenoiseUNI == 1
     disp(' ');
     disp('++++ Background denoised UNI will be produced.');

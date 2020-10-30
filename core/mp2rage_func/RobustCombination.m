@@ -1,4 +1,4 @@
-function [MP2RAGEimgRobustPhaseSensitive, multiplyingFactor] = RobustCombination(NoisyImage,MP2RAGE,regularisation, visualise)
+function [MP2RAGEimgRobustPhaseSensitive, multiplyingFactor] = RobustCombination(NoisyImage,MP2RAGE,regularisation,visualise)
 
 % This script allows the creation of MP2RAGE T1w images without the strong
 % background noise in air regions.

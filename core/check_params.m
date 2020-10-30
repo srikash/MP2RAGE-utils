@@ -35,9 +35,11 @@ end
 if isempty(MP2RAGE.B1correct)==1
     disp(' ');
     disp('++++ B1 correction not specified.');
+    Sa2RAGE=[];
 elseif MP2RAGE.B1correct == 0
     disp(' ');
     disp('++++ B1 correction not performed.');
+    Sa2RAGE=[];
 else
     if isempty(MP2RAGE.sa2rageB1map)==0
         if isempty(MP2RAGE.sa2rageTR)==1
