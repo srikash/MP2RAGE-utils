@@ -39,7 +39,7 @@ elseif MP2RAGE.Coregister == 1
     copyfile([MP2RAGE.filepathsa2rageB1map,'/cr_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map],[MP2RAGE.filepathUNI,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii']);
     delete([MP2RAGE.filepathsa2rageB1map,'/cr_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
     delete([MP2RAGE.filepathsa2rageINV2,'/cr_',MP2RAGE.filenamesa2rageINV2,MP2RAGE.extsa2rageINV2]);
-    Sa2RAGE.B1filename=[MP2RAGE.filepathUNI,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii'];
+    Sa2RAGE.B1filename=[MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii'];
 elseif MP2RAGE.Coregister == 0
     %% Setup matlabbatch
     clear matlabbatch;
@@ -55,7 +55,7 @@ elseif MP2RAGE.Coregister == 0
     %% Rename registered B1 map
     copyfile([MP2RAGE.filepathsa2rageB1map,'/rs_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map],[MP2RAGE.filepathUNI,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii']);
     delete([MP2RAGE.filepathsa2rageB1map,'/rs_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
-    Sa2RAGE.B1filename=[MP2RAGE.filepathUNI,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii'];
+    Sa2RAGE.B1filename=[MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii'];
 end
 
 %% Check for TFL map
@@ -72,8 +72,8 @@ if isempty(MP2RAGE.tflB1map)==0
     spm('defaults', 'FMRI');
     spm_jobman('run', matlabbatch);
     %% Rename registered B1 map
-    copyfile([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map],[MP2RAGE.filepathUNI,'/',MP2RAGE.filenametflB1map,'_resliced.nii']);
+    copyfile([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map],[MP2RAGE.filenametflB1map,'/',MP2RAGE.filenametflB1map,'_resliced.nii']);
     delete([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map]);
-    MP2RAGE.TFLB1filename=[MP2RAGE.filepathUNI,'/',MP2RAGE.filenametflB1map,'_resliced.nii'];
+    MP2RAGE.TFLB1filename=[MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,'_resliced.nii'];
 end
 
