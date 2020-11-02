@@ -38,7 +38,7 @@ elseif MP2RAGE.Coregister == 1
     %% Rename registered B1 map
     copyfile([MP2RAGE.filepathsa2rageB1map,'/cr_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map],[MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii']);
     delete([MP2RAGE.filepathsa2rageB1map,'/cr_',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
-    delete([MP2RAGE.filepathsa2rageINV2,'/cr_',MP2RAGE.filenamesa2rageINV2,MP2RAGE.filenamesa2rageB1map]);
+    delete([MP2RAGE.filepathsa2rageINV2,'/cr_',MP2RAGE.filenamesa2rageINV2,MP2RAGE.extsa2rageINV2]);
     Sa2RAGE.B1filename=[MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,'_resliced.nii'];
 elseif MP2RAGE.Coregister == 0
     %% Setup matlabbatch
