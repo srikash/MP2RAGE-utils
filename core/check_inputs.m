@@ -14,7 +14,7 @@ if isfield(MP2RAGE,'INV1')==1
             % T1
             gunzip([MP2RAGE.filepathINV1,'/',MP2RAGE.filenameINV1,MP2RAGE.extINV1]);
             delete([MP2RAGE.filepathINV1,'/',MP2RAGE.filenameINV1,MP2RAGE.extINV1]);
-            MP2RAGE.INV1=[MP2RAGE.filepathINV1,MP2RAGE.filenameINV1];
+            MP2RAGE.INV1=[MP2RAGE.filepathINV1,'/',MP2RAGE.filenameINV1];
             disp(['> ',MP2RAGE.filepathINV1,'/',MP2RAGE.filenameINV1,MP2RAGE.extINV1]);
             [MP2RAGE.filepathINV1,MP2RAGE.filenameINV1,MP2RAGE.extINV1]=fileparts(MP2RAGE.INV1);
         end
@@ -33,7 +33,7 @@ if isfield(MP2RAGE,'INV2')==1
             % T1
             gunzip([MP2RAGE.filepathINV2,'/',MP2RAGE.filenameINV2,MP2RAGE.extINV2]);
             delete([MP2RAGE.filepathINV2,'/',MP2RAGE.filenameINV2,MP2RAGE.extINV2]);
-            MP2RAGE.INV2=[MP2RAGE.filepathINV2,MP2RAGE.filenameINV2];
+            MP2RAGE.INV2=[MP2RAGE.filepathINV2,'/',MP2RAGE.filenameINV2];
             disp(['> ',MP2RAGE.filepathINV2,'/',MP2RAGE.filenameINV2,MP2RAGE.extINV2]);
             [MP2RAGE.filepathINV2,MP2RAGE.filenameINV2,MP2RAGE.extINV2]=fileparts(MP2RAGE.INV2);
         end
@@ -52,7 +52,7 @@ if isfield(MP2RAGE,'UNI')==1
             % T1
             gunzip([MP2RAGE.filepathUNI,'/',MP2RAGE.filenameUNI,MP2RAGE.extUNI]);
             delete([MP2RAGE.filepathUNI,'/',MP2RAGE.filenameUNI,MP2RAGE.extUNI]);
-            MP2RAGE.UNI=[MP2RAGE.filepathUNI,MP2RAGE.filenameUNI];
+            MP2RAGE.UNI=[MP2RAGE.filepathUNI,'/',MP2RAGE.filenameUNI];
             disp(['> ',MP2RAGE.filepathUNI,'/',MP2RAGE.filenameUNI,MP2RAGE.extUNI]);
             [MP2RAGE.filepathUNI,MP2RAGE.filenameUNI,MP2RAGE.extUNI]=fileparts(MP2RAGE.UNI);
         end
@@ -74,7 +74,7 @@ if isfield(MP2RAGE,'T1map')==1
             % T1
             gunzip([MP2RAGE.filepathT1map,'/',MP2RAGE.filenameT1map,MP2RAGE.extT1map]);
             delete([MP2RAGE.filepathT1map,'/',MP2RAGE.filenameT1map,MP2RAGE.extT1map]);
-            MP2RAGE.T1map=[MP2RAGE.filepathT1map,MP2RAGE.filenameT1map];
+            MP2RAGE.T1map=[MP2RAGE.filepathT1map,'/',MP2RAGE.filenameT1map];
             disp(['> ',MP2RAGE.filepathT1map,'/',MP2RAGE.filenameT1map,MP2RAGE.extT1map]);
             [MP2RAGE.filepathT1map,MP2RAGE.filenameT1map,MP2RAGE.extT1map]=fileparts(MP2RAGE.T1map);
         end
@@ -117,7 +117,7 @@ if isfield(MP2RAGE,'sa2rageB1map')==1
             % Sa2RAGE B1map
             gunzip([MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
             delete([MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
-            MP2RAGE.sa2rageB1map=[MP2RAGE.filepathsa2rageB1map,MP2RAGE.filenamesa2rageB1map];
+            MP2RAGE.sa2rageB1map=[MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map];
             disp(['> ',MP2RAGE.filepathsa2rageB1map,'/',MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]);
             [MP2RAGE.filepathsa2rageB1map,MP2RAGE.filenamesa2rageB1map,MP2RAGE.extsa2rageB1map]=fileparts(MP2RAGE.sa2rageB1map);
         end
@@ -138,7 +138,7 @@ if isfield(MP2RAGE,'tflB1map')==1
             % Sa2RAGE B1map
             gunzip([MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map]);
             delete([MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map]);
-            MP2RAGE.tflB1map=[MP2RAGE.filepathtflB1map,MP2RAGE.filenametflB1map];
+            MP2RAGE.tflB1map=[MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map];
             disp(['> ',MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map]);
             [MP2RAGE.filepathtflB1map,MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map]=fileparts(MP2RAGE.tflB1map);
         end

@@ -215,7 +215,7 @@ if isfield(MP2RAGE,'B1correct')==1
         MP2RAGE.filenameT1corrout=[MP2RAGE.filepathUNI,'/','MP2RAGE_corrT1.nii'];
     end
     disp(['> Output file is called : ',MP2RAGE.filenameT1corrout]);
-    save_untouch_nii(MP2RAGEcorr,MP2RAGE.filenameT1corrout);
+    save_untouch_nii(T1corrected,MP2RAGE.filenameT1corrout);
 else
     disp(' ');
     disp('++++ B1 correction requires a B1 map to be specified.');
