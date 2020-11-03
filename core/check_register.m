@@ -20,7 +20,7 @@ if isempty(MP2RAGE.tflB1map)==0
     %% Setup matlabbatch
     clear matlabbatch;
     matlabbatch{1}.spm.spatial.coreg.write.ref = {[MP2RAGE.filepathINV2,'/',MP2RAGE.filenameINV2,',1']};
-    matlabbatch{1}.spm.spatial.coreg.write.source = {[MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,',1']};
+    matlabbatch{1}.spm.spatial.coreg.write.source = {[MP2RAGE.filepathtflB1map,'/',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map,',1']};
     matlabbatch{1}.spm.spatial.coreg.write.roptions.interp = 7;
     matlabbatch{1}.spm.spatial.coreg.write.roptions.wrap = [0 0 0];
     matlabbatch{1}.spm.spatial.coreg.write.roptions.mask = 0;
@@ -29,8 +29,8 @@ if isempty(MP2RAGE.tflB1map)==0
     spm('defaults', 'FMRI');
     spm_jobman('run', matlabbatch);
     %% Rename registered B1 map
-    copyfile([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map],[MP2RAGE.filepathUNI,'/',MP2RAGE.filenametflB1map,'_resliced.nii']);
-    delete([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map]);
+    copyfile([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map],[MP2RAGE.filepathUNI,'/',MP2RAGE.filenametflB1map,'_resliced.nii']);
+    delete([MP2RAGE.filepathtflB1map,'/rs_',MP2RAGE.filenametflB1map,MP2RAGE.exttflB1map]);
     MP2RAGE.TFLB1filename=[MP2RAGE.filepathUNI,'/',MP2RAGE.filenametflB1map,'_resliced.nii'];
 elseif isempty(MP2RAGE.filepathsa2rageB1map)==0
     %% Check for coregistration

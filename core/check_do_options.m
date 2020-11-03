@@ -203,6 +203,10 @@ if isfield(MP2RAGE,'B1correct')==1
         MP2RAGE.filenameUNIcorrout=[MP2RAGE.filepathUNI,'/','MP2RAGE_corrUNI.nii'];
     end
     disp(['> Output file is called : ',MP2RAGE.filenameUNIcorrout]);
+    
+    % Fix filetype and save
+    MP2RAGEcorr.hdr.dime.datatype=16;
+    MP2RAGEcorr.hdr.dime.bitpix=32;
     save_untouch_nii(MP2RAGEcorr,MP2RAGE.filenameUNIcorrout);
     
     if contains(fname,'UNI','IgnoreCase',true)==1
@@ -215,6 +219,10 @@ if isfield(MP2RAGE,'B1correct')==1
         MP2RAGE.filenameT1corrout=[MP2RAGE.filepathUNI,'/','MP2RAGE_corrT1.nii'];
     end
     disp(['> Output file is called : ',MP2RAGE.filenameT1corrout]);
+    
+    % Fix filetype and save
+    T1corrected.hdr.dime.datatype=16;
+    T1corrected.hdr.dime.bitpix=32;
     save_untouch_nii(T1corrected,MP2RAGE.filenameT1corrout);
     
     %% Check for background removal options
