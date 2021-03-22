@@ -1,4 +1,4 @@
-# MP2RAGE-utils
+# MP2RAGE-utils [![DOI](https://zenodo.org/badge/307662544.svg)](https://zenodo.org/badge/latestdoi/307662544)
 
 ## Usage
 Setup all parameters and paths in the `config.yml` file  
