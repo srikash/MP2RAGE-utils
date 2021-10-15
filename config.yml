@@ -1,5 +1,5 @@
 # Example config file for MP2RAGE-utils
-# Leave fields empty if not needed
+# NOTE: LEAVE FIELDS EMPTY/BLANK IF NOT USED. DO NOT DELETE.
 
 # Required input parameters (full path must be provided)
 INV1: example/MP2RAGE_INV1.nii
